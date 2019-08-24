@@ -12,5 +12,5 @@ function search(query) {
         query = query_container.value;
 
     query = query.split(' ').join('+');
-    location.href = "./search.html?query=" + query;
+    location.href = `./search.html?query=${query}`;
 }

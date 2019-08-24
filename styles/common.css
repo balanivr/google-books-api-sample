@@ -6,6 +6,8 @@
 
     --space-unit: 10px;
     --body-font-size: 14px;
+
+    --top-element-shadow: 0 0px 8px 2px rgba(0, 0, 0, 0.6);
 }
 * {
     font-family: 'Roboto', sans-serif;
@@ -21,7 +23,8 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Light', sans-serif;
+    letter-spacing: 0.5px;
 }
 
 /** ELEMENTS **/
@@ -32,7 +35,28 @@ h1, h2, h3, h4, h5, h6 {
 .flex-container {
     display: flex;
     align-items: center;
+}
+.flex-centered {
     justify-content: center;
+}
+.flex-spread {
+    justify-content: space-between;
+}
+.spacer {
+    flex-grow: 1;
+}
+section.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: var(--top-element-shadow);
+}
+section.header .header-content {
+    width: calc(100% - var(--space-unit, 10px) * 4);
+}
+section.main {
+    margin-top: calc(var(--space-unit, 10px) * 4 + 2em);
+    padding: var(--space-unit, 10px) calc(var(--space-unit, 10px) * 2);
 }
 
 /** COMPONENTS **/
@@ -48,5 +72,10 @@ input {
 .primary-btn {
     border-color: var(--primary-color, #FF6600) !important;
     background-color: var(--primary-color, #FF6600);
+    color: var(--primary-color-content, #FFFFFF);
+}
+.primary-toolbar {
+    background-color: var(--primary-color, #FF6600);
+    padding: calc(var(--space-unit, 10px) * 1.5) calc(var(--space-unit, 10px) * 2);
     color: var(--primary-color-content, #FFFFFF);
 }

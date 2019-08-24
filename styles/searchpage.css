@@ -1,0 +1,15 @@
+#query-container {
+    width: 25%;
+    min-width: 200px;
+}
+
+#query-container input {
+    width: 90%;
+    border: 1px solid #FFFFFF;
+}
+
+#query-container .btn {
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding: calc(var(--space-unit, 10px) + 1.5px);
+}

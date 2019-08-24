@@ -5,11 +5,26 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="./styles/common.css" rel="stylesheet" type="text/css" />
-    <!-- <link href="./styles/searchpage.css" rel="stylesheet" type="text/css" /> -->
+    <link href="./styles/searchpage.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>This is a test</h1>
+    <section class="header primary-toolbar">
+        <div class="flex-container flex-spread header-content">
+            <h1>Search Results</h1>
+            <div id="query-container" class="flex-container">
+                <input type="text" id="search-container" />
+                <button onclick="javascript:newQuery();" class="btn">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="main" style="height: 100vh;">
+        <div id="books">
+            
+        </div>
+    </section>
 </body>
-<!-- <script src="./js/searchpage.js" type="text/javascript"></script> -->
+<script src="./js/searchpage.js" type="text/javascript"></script>
 <script src="./js/common.js" type="text/javascript"></script>
 </html>
