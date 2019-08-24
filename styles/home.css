@@ -1,0 +1,13 @@
+#query-container {
+    border-radius: 50px 0 0 50px;
+    width: 45%;
+    max-width: 600px;
+}
+
+.query-btn {
+    border: 1px solid;
+    padding: calc(var(--space-unit, 10px) + 1.5px) calc(var(--space-unit, 10px) + 10px) calc(var(--space-unit, 10px) + 1.5px) calc(var(--space-unit, 10px) + 5px);
+    border-radius: 0 50px 50px 0;
+    width: 5%;
+    max-width: 50px;
+}

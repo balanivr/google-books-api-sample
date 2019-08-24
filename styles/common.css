@@ -1,0 +1,52 @@
+/** GENERAL **/
+:root {
+    --primary-color: rgb(63,81,181);
+    --primary-color-content: #FFFFFF;
+    --outline-color: rgba(0, 0, 0, 0.2);
+
+    --space-unit: 10px;
+    --body-font-size: 14px;
+}
+* {
+    font-family: 'Roboto', sans-serif;
+}
+*:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    font-size: var(--body-font-size, 14px);
+}
+*:focus {
+    outline: none;
+}
+body {
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/** ELEMENTS **/
+.full-screen {
+    width: 100vw;
+    height: 100vh;
+}
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/** COMPONENTS **/
+input {
+    padding: var(--space-unit, 10px) calc(var(--space-unit, 10px) * 2);
+    border: 1px solid var(--outline-color, rgba(0, 0, 0, 0.2));
+}
+.btn {
+    padding: var(--space-unit, 10px) calc(var(--space-unit, 10px) * 2);
+    border-radius: 0;
+    cursor: pointer;
+}
+.primary-btn {
+    border-color: var(--primary-color, #FF6600) !important;
+    background-color: var(--primary-color, #FF6600);
+    color: var(--primary-color-content, #FFFFFF);
+}
