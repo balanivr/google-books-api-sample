@@ -1,4 +1,5 @@
-This project demonstrates search using the [Google Books API](https://developers.google.com/books/docs/overview). The project has been written in pure HTML, CSS and JavaScript and does not use libraries such as jQuery.
+This project demonstrates search using the [Google Books API](https://developers.google.com/books/docs/overview). The project has been written in pure HTML, CSS and JavaScript and does not use libraries such as jQuery. A demo of the project may be viewed at:
+[https://vikeshcodes.com/gbooks](https://vikeshcodes.com/gbooks)
 
 ## Dependencies
 
