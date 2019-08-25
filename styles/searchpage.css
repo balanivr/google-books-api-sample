@@ -1,10 +1,15 @@
+#back-btn {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
 #query-container {
     width: 25%;
     min-width: 200px;
 }
 
 #query-container:hover {
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow);
 }
 
 #query-container input {
@@ -18,6 +23,10 @@
     padding: calc(var(--space-unit, 10px) + 1.5px);
 }
 
+#query-container.force-show {
+    display: flex !important;
+}
+
 #books {
     width: 100%;
     max-width: 1080px;
@@ -27,7 +36,7 @@
 .card {
     width: 100%;
     border-radius: var(--round-corners, 4px);
-    box-shadow: var(--shadow);
+    border: 1px solid var(--outline-color, rgba(0, 0, 0, 0.2));
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -36,10 +45,23 @@
 }
 
 .card:hover {
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow);
 }
 
 .card > div {
     margin: 10px;
 }
 
+@media all and (max-width: 767px) {
+    .book-image {
+        max-width: 25%;
+    }
+
+    .book-image img {
+        width: 100%;
+    }
+
+    .book-info {
+        max-width: calc(75% - 40px);
+    }
+}

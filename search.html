@@ -10,18 +10,43 @@
 <body>
     <section class="header primary-toolbar">
         <div class="flex-container flex-spread header-content">
-            <h1>Search Results</h1>
-            <div id="query-container" class="flex-container">
+            <div id="page-title-container" class="flex-container">
+                <h1>
+                    <i id="back-btn" class="fa fa-arrow-left"></i>
+                </h1>
+                <h1>Search Results</h1>
+            </div>
+            <div id="query-container" class="flex-container hide-on-mobile">
                 <input type="text" id="search-container" />
                 <button onclick="javascript:newQuery();" class="btn">
                     <i class="fa fa-search"></i>
                 </button>
             </div>
+            <div id="mobile-query-container" class="show-on-mobile">
+                <h1>
+                    <i id="mobile-search-btn" class="fa fa-search"></i>
+                    <i id="mobile-cancel-search-btn" class="fa fa-close hidden"></i>
+                </h1>
+            </div>
         </div>
     </section>
-    <section class="main" style="height: 100vh;">
+    <section class="main">
         <div id="books">
             <!-- Search results are populated here in JS -->
+        </div>
+        <div id="fetching-results-container" class="hidden flex-container flex-centered">
+            <h2>Fetching Results...</h2>
+        </div>
+        <div id="load-more-container" class="flex-container flex-centered">
+            <div style="text-align: center;">
+                <h4 class="subtitle">
+                    Showing <span id="loaded-count">14</span> results
+                </h4>
+                <br />
+                <button onclick="javascript:getResults();" class="primary-btn btn">
+                    Load More
+                </button>
+            </div>
         </div>
     </section>
 </body>

@@ -1,6 +1,17 @@
-const search_container = document.getElementById('search-container');
-const books_container = document.getElementById('books');
+const back_button           = document.getElementById('back-btn');
+const title_container       = document.getElementById('page-title-container');
+const query_container       = document.getElementById('query-container');
+const search_container      = document.getElementById('search-container');
+const books_container       = document.getElementById('books');
+const search_button         = document.getElementById('mobile-search-btn');
+const cancel_search_button  = document.getElementById('mobile-cancel-search-btn');
+
+const loading_container     = document.getElementById('fetching-results-container');
+const load_more_container   = document.getElementById('load-more-container');
+const loaded_count          = document.getElementById('loaded-count');
+
 const RESULTS = 20;
+var loaded = 0;
 var query;
 
 function init() {
@@ -14,6 +25,26 @@ function init() {
         }
     });
 
+    back_button.addEventListener('click', function() {
+        window.location.href = "./index.html";
+    });
+
+    search_button.addEventListener('click', function() {
+        title_container.classList.add('hidden');
+        search_button.classList.add('hidden');
+
+        query_container.classList.add('force-show');
+        cancel_search_button.classList.remove('hidden');
+    });
+
+    cancel_search_button.addEventListener('click', function() {
+        title_container.classList.remove('hidden');
+        search_button.classList.remove('hidden');
+
+        query_container.classList.remove('force-show');
+        cancel_search_button.classList.add('hidden');
+    });
+
     getResults();
 }
 
@@ -23,11 +54,16 @@ function newQuery() {
 }
 
 function getResults() {
-    let url = `https://www.googleapis.com/books/v1/volumes?country=US&maxResults=${RESULTS}&q=${query}`;
+    loading_container.classList.remove('hidden');
+    load_more_container.classList.add('hidden');
+
+    let url = `https://www.googleapis.com/books/v1/volumes?country=US&startIndex=${loaded}&maxResults=${RESULTS}&q=${query}`;
     httpGet(url, function(data) {
         let response = JSON.parse(data);
-        
+        let results = response.totalItems;
+
         var books = response.items;
+        loaded += books.length;
         books.forEach(book => {
             let info = book.volumeInfo;
 
@@ -39,6 +75,11 @@ function getResults() {
 
             addBook(title, author, publisher, image, url);
         });
+
+        loading_container.classList.add('hidden');
+        load_more_container.classList.remove('hidden');
+
+        loaded_count.innerText = loaded;
     });
 }
 
@@ -64,10 +105,11 @@ function addBook(title, author, publisher, image, url) {
     book_title.innerText = title;
 
     let book_author = document.createElement('p');
+    book_author.classList.add('subtitle');
     book_author.innerText = author !== undefined ? author : "Unknown Author";
 
     let book_publisher = document.createElement('p');
-    book_publisher.innerText = publisher !== undefined ? author : "Unknown Publisher";
+    book_publisher.innerText = publisher !== undefined ? publisher : "Unknown Publisher";
 
     info_container.appendChild(book_title);
     info_container.appendChild(book_author);

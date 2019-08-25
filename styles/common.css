@@ -3,6 +3,7 @@
     --primary-color: rgb(63,81,181);
     --primary-color-content: #FFFFFF;
     --outline-color: rgba(0, 0, 0, 0.2);
+    --subtext-color: rgba(0, 0, 0, 0.8);
 
     --space-unit: 10px;
     --body-font-size: 14px;
@@ -10,7 +11,6 @@
 
     --top-element-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.6);
     --shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3);
-    --shadow-hover: 0 0 30px 10px rgba(0, 0, 0, 0.3);
 }
 * {
     font-family: 'Roboto', sans-serif;
@@ -58,16 +58,35 @@ section.header {
     top: 0;
     width: 100%;
     box-shadow: var(--top-element-shadow);
+    z-index: 10;
 }
 section.header .header-content {
     width: calc(100% - var(--space-unit, 10px) * 4);
 }
 section.main {
     margin-top: calc(var(--space-unit, 10px) * 4 + 2em);
+    margin-bottom: var(--space-unit, 10px);
     padding: var(--space-unit, 10px) calc(var(--space-unit, 10px) * 2);
+}
+.hidden {
+    display: none;
+}
+@media all and (min-width: 768px) {
+    .show-on-mobile {
+        display: none;
+    }
+}
+@media all and (max-width: 767px) {
+    .hide-on-mobile {
+        display: none;
+    }
 }
 
 /** COMPONENTS **/
+.subtitle {
+    color: var(--subtext-color);
+    margin: 0;
+}
 input {
     padding: var(--space-unit, 10px) calc(var(--space-unit, 10px) * 2);
     border: 1px solid var(--outline-color, rgba(0, 0, 0, 0.2));
@@ -75,6 +94,8 @@ input {
 .btn {
     padding: var(--space-unit, 10px) calc(var(--space-unit, 10px) * 2);
     border-radius: 0;
+    border-width: 1px;
+    border-style: solid;
     cursor: pointer;
 }
 .primary-btn {
