@@ -6,8 +6,11 @@
 
     --space-unit: 10px;
     --body-font-size: 14px;
+    --round-corners: 4px;
 
-    --top-element-shadow: 0 0px 8px 2px rgba(0, 0, 0, 0.6);
+    --top-element-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.6);
+    --shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 0 30px 10px rgba(0, 0, 0, 0.3);
 }
 * {
     font-family: 'Roboto', sans-serif;
@@ -25,6 +28,11 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-family: 'Roboto Light', sans-serif;
     letter-spacing: 0.5px;
+}
+a, a * {
+    color: inherit;
+    text-decoration: none;
+
 }
 
 /** ELEMENTS **/

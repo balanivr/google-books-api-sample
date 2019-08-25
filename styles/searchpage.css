@@ -3,6 +3,10 @@
     min-width: 200px;
 }
 
+#query-container:hover {
+    box-shadow: var(--shadow-hover);
+}
+
 #query-container input {
     width: 90%;
     border: 1px solid #FFFFFF;
@@ -13,3 +17,29 @@
     border: 1px solid #FFFFFF;
     padding: calc(var(--space-unit, 10px) + 1.5px);
 }
+
+#books {
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+}
+
+.card {
+    width: 100%;
+    border-radius: var(--round-corners, 4px);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: calc(var(--space-unit, 10px) * 2);
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.card > div {
+    margin: 10px;
+}
+
