@@ -6,11 +6,27 @@ try {
 
 function httpGet(url, callback)
 {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() { 
+        if (xhr.readyState == 4) {
+            if (xhr.status) 
+                callback(xhr.responseText);
+            else {
+                var failed = {
+                    error: {
+                        code: 0,
+                        message: "Unable to process request"
+                    }
+                };
+                
+                callback(JSON.stringify(failed));
+            }
+        }
     }
-    xmlHttp.open("GET", url, true);
-    xmlHttp.send(null);
+    xhr.open("GET", url, true);
+    xhr.send(null);
+}
+
+function validQuery(query) {
+    return query.length > 0;
 }

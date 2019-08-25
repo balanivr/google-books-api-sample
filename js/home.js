@@ -11,6 +11,9 @@ function search(query) {
     if (!query) 
         query = query_container.value;
 
+    if (!validQuery(query))
+        return;
+
     query = query.split(' ').join('+');
     location.href = `./search.html?query=${query}`;
 }

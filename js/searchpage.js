@@ -6,6 +6,7 @@ const books_container       = document.getElementById('books');
 const search_button         = document.getElementById('mobile-search-btn');
 const cancel_search_button  = document.getElementById('mobile-cancel-search-btn');
 
+const no_results            = document.getElementById('no-results');
 const loading_container     = document.getElementById('fetching-results-container');
 const load_more_container   = document.getElementById('load-more-container');
 const loaded_count          = document.getElementById('loaded-count');
@@ -49,21 +50,52 @@ function init() {
 }
 
 function newQuery() {
-    query = search_container.value.split(' ').join('+')
+    let readable_query = search_container.value;
+
+    if (!validQuery(readable_query))
+        return;
+
+    query = readable_query.split(' ').join('+')
     location.href = `./search.html?query=${query}`;
 }
 
 function getResults() {
     loading_container.classList.remove('hidden');
     load_more_container.classList.add('hidden');
-
+    
     let url = `https://www.googleapis.com/books/v1/volumes?country=US&startIndex=${loaded}&maxResults=${RESULTS}&q=${query}`;
     httpGet(url, function(data) {
-        let response = JSON.parse(data);
-        let results = response.totalItems;
+        var response = null;
+        
+        try {
+            response = JSON.parse(data);
+        } catch (e) {
+            console.log('Unable to parse response');
+        }
+
+        if (!response) {
+            showNoResults();
+            return;
+        }
+        else if (response.error) {
+            let code = response.error.code;
+            let message = response.error.message;
+
+            console.log(`Response Code: ${code}`);
+            console.log(message);
+            showNoResults();
+            return;
+        }
 
         var books = response.items;
+        
+        if (!books) {
+            showNoResults();
+            return;
+        }
+        
         loaded += books.length;
+
         books.forEach(book => {
             let info = book.volumeInfo;
 
@@ -119,4 +151,9 @@ function addBook(title, author, publisher, image, url) {
     card.appendChild(info_container);
 
     books_container.appendChild(card);
+}
+
+function showNoResults() {
+    loading_container.classList.add('hidden');
+    no_results.classList.remove('hidden');
 }

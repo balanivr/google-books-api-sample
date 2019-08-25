@@ -1,6 +1,6 @@
 #query-container {
     border-radius: 50px 0 0 50px;
-    width: 45%;
+    width: 60%;
     max-width: 600px;
 }
 
@@ -8,6 +8,6 @@
     border: 1px solid;
     padding: calc(var(--space-unit, 10px) + 1.5px) calc(var(--space-unit, 10px) + 10px) calc(var(--space-unit, 10px) + 1.5px) calc(var(--space-unit, 10px) + 5px);
     border-radius: 0 50px 50px 0;
-    width: 5%;
+    width: 15%;
     max-width: 50px;
 }
