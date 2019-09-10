@@ -30,3 +30,10 @@ function httpGet(url, callback)
 function validQuery(query) {
     return query.length > 0;
 }
+
+function getFromURL(parameter) {
+    let urlParams = new URLSearchParams(location.search);
+    parsed = urlParams.has(parameter) ? urlParams.get(parameter) : '';
+
+    return parsed;
+}

@@ -16,37 +16,40 @@ var loaded = 0;
 var query;
 
 function init() {
-    let urlParams = new URLSearchParams(location.search);
-    query = urlParams.has('query') ? urlParams.get('query') : '';
+    try {
+        query = getFromURL('query');
+        
+        search_container.value = query.split('+').join(' ');
+        search_container.addEventListener('keyup', function(e) {
+            if (e.keyCode == 13) {
+                newQuery();
+            }
+        });
 
-    search_container.value = query.split('+').join(' ');
-    search_container.addEventListener('keyup', function(e) {
-        if (e.keyCode == 13) {
-            newQuery();
-        }
-    });
+        back_button.addEventListener('click', function() {
+            window.location.href = "./index.html";
+        });
 
-    back_button.addEventListener('click', function() {
-        window.location.href = "./index.html";
-    });
+        search_button.addEventListener('click', function() {
+            title_container.classList.add('hidden');
+            search_button.classList.add('hidden');
 
-    search_button.addEventListener('click', function() {
-        title_container.classList.add('hidden');
-        search_button.classList.add('hidden');
+            query_container.classList.add('force-show');
+            cancel_search_button.classList.remove('hidden');
+        });
 
-        query_container.classList.add('force-show');
-        cancel_search_button.classList.remove('hidden');
-    });
+        cancel_search_button.addEventListener('click', function() {
+            title_container.classList.remove('hidden');
+            search_button.classList.remove('hidden');
 
-    cancel_search_button.addEventListener('click', function() {
-        title_container.classList.remove('hidden');
-        search_button.classList.remove('hidden');
+            query_container.classList.remove('force-show');
+            cancel_search_button.classList.add('hidden');
+        });
 
-        query_container.classList.remove('force-show');
-        cancel_search_button.classList.add('hidden');
-    });
-
-    getResults();
+        getResults();
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 function newQuery() {

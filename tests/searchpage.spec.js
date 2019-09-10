@@ -1,16 +1,23 @@
-describe('First test case', ()=> {
-    let test;
+describe('Parse query from URL', () => {
+    let query;
+    let parsed;
 
-    beforeEach(() => test = true);
+    it('Fetches query', () => {
+        query = getFromURL('query');
 
-    it('Should return true', ()=> {
-        test = test;
-
-        expect(test).toBe(true);
+        expect(query).not.toBe(null);
     });
-    it('Should return false', ()=> {
-        test = !test;
 
-        expect(test).toBe(false);
+    it('Parses query', () => {
+        parsed = query.split('+').join(' ');
+
+        expect(parsed.indexOf('+')).toBe(-1);
+    });
+    
+    it('Sets search box with query', () => {
+        const search_container = document.createElement('input');
+        search_container.value = query.split('+').join(' ');
+
+        expect(search_container.value === parsed).toBe(true);
     });
 });
