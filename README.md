@@ -8,6 +8,8 @@ This project demonstrates search using the [Google Books API](https://developers
 The project can be run on any server. It can even run locally from your machine by loading `index.html` into your browser. Internally, however, the project makes use of 2 external libraries (referenced via CDN) for certain UI Elements:
 - [Google Fonts: Roboto](https://fonts.google.com/?query=roboto&selection.family=Roboto)
 - [Font Awesome](https://fontawesome.com/v4.7.0/get-started/)
+
+Additionally, this project uses the following library to implement test cases:
 - [Jasmine](https://jasmine.github.io/)
 
 Nothing needs to be installed for this project to work. However, the above files will not load without an active internet connection.
@@ -53,14 +55,17 @@ This end-point does not require an API key or OAUTH 2.0 token. The URL parameter
 
 ## Testing This Project
 
-The project may be tested by loading the `./tests/search.spec.html` page. The test cases on this page are written in `./tests/searchpage.spec.js`. Note that in order for all the tests to pass, a query must be passes in the URL of the page. The simplest way to achieve this would be to load `index.html`, enter a search query and click 'Run Unit Tests'.
+The project may be tested by loading the `./tests/search.spec.html` page. The test cases on this page are written in `./tests/searchpage.spec.js`. Note that in order for all the tests to pass, a query must be passed in the URL of the page. The simplest way to achieve this would be to load `index.html`, enter a search query and click 'Run Unit Tests'.
+
+Here is a sample of the test cases run when passing the query `Jasmine Javascript`:
+[https://vikeshcodes.com/gbooks/test/search.spec.html?query=Jasmine+Javascript](https://vikeshcodes.com/gbooks/test/search.spec.html?query=Jasmine+Javascript)
 
 The tests that have been written broadly cover 3 areas:
 - Fetching the search query from the URL and setting it to the search box
-- Hitting the API with this query and testing the repsonse
+- Hitting the API with this query and testing the response
 - Using this response to create search results in the DOM
 
-Each test case depends on the previous test case running successfully. If one test case fails, the remaining tests fail too. Owing to this, the test cases **will not work if the tests are randomized**.
+Each test case depends on the previous test case running successfully. If one test case fails, all subsequent tests fail too. Owing to this, the test cases **will not work if the tests are randomized**.
 
 ## Additional Details
 
