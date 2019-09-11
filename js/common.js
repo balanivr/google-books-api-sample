@@ -28,7 +28,7 @@ function httpGet(url, callback)
 }
 
 function validQuery(query) {
-    return query.length > 0;
+    return query.length > 0 && query.length < 1024;
 }
 
 function formatQuery(query) {

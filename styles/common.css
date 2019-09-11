@@ -4,6 +4,7 @@
     --primary-color-content: #FFFFFF;
     --outline-color: rgba(0, 0, 0, 0.2);
     --subtext-color: rgba(0, 0, 0, 0.8);
+    --error-color: #A63232;
 
     --space-unit: 10px;
     --body-font-size: 14px;
@@ -81,6 +82,10 @@ section.main {
         display: none;
     }
 }
+.centered-content {
+    display: table-cell;
+    vertical-align: middle;
+}
 
 /** COMPONENTS **/
 .subtitle {
@@ -107,4 +112,8 @@ input {
     background-color: var(--primary-color, #FF6600);
     padding: calc(var(--space-unit, 10px) * 1.5) calc(var(--space-unit, 10px) * 2);
     color: var(--primary-color-content, #FFFFFF);
+}
+.error {
+    color: var(--error-color, #A63232);
+    font-weight: bold;
 }

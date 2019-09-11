@@ -24,6 +24,11 @@ function init() {
             if (e.keyCode == 13) {
                 newQuery();
             }
+
+            if(!validQuery(search_container.value)) 
+                search_container.classList.add("error");
+            else
+                search_container.classList.remove("error");
         });
 
         back_button.addEventListener('click', function() {
