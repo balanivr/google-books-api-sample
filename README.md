@@ -60,7 +60,7 @@ The tests that have been written broadly cover 3 areas:
 - Hitting the API with this query and testing the repsonse
 - Using this response to create search results in the DOM
 
-Each test case depends on the previous test case running successfully. If one test case fails, the remaining tests fail too. Owing to this, the test cases **will not work if teh tests are ranomized**.
+Each test case depends on the previous test case running successfully. If one test case fails, the remaining tests fail too. Owing to this, the test cases **will not work if the tests are randomized**.
 
 ## Additional Details
 
