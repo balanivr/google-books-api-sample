@@ -18,8 +18,8 @@ var query;
 function init() {
     try {
         query = getFromURL('query');
-        
-        search_container.value = query.split('+').join(' ');
+
+        search_container.value = parseQuery(query);
         search_container.addEventListener('keyup', function(e) {
             if (e.keyCode == 13) {
                 newQuery();
@@ -58,7 +58,7 @@ function newQuery() {
     if (!validQuery(readable_query))
         return;
 
-    query = readable_query.split(' ').join('+')
+    query = formatQuery(readable_query);
     location.href = `./search.html?query=${query}`;
 }
 

@@ -14,6 +14,6 @@ function search(query) {
     if (!validQuery(query))
         return;
 
-    query = query.split(' ').join('+');
+    query = formatQuery(query);
     location.href = `./search.html?query=${query}`;
 }

@@ -10,7 +10,7 @@ function httpGet(url, callback)
     xhr.onreadystatechange = function() { 
         if (xhr.readyState == 4) {
             if (xhr.status) 
-                callback(xhr.responseText);
+                callback(xhr.responseText, xhr.status);
             else {
                 var failed = {
                     error: {
@@ -19,7 +19,7 @@ function httpGet(url, callback)
                     }
                 };
                 
-                callback(JSON.stringify(failed));
+                callback(JSON.stringify(failed), 0);
             }
         }
     }
@@ -29,6 +29,14 @@ function httpGet(url, callback)
 
 function validQuery(query) {
     return query.length > 0;
+}
+
+function formatQuery(query) {
+    return query ? query.split(' ').join('+') : '';
+}
+
+function parseQuery(query) {
+    return query ? query.split('+').join(' ') : '';
 }
 
 function getFromURL(parameter) {
