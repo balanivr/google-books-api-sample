@@ -58,7 +58,7 @@ This end-point does not require an API key or OAUTH 2.0 token. The URL parameter
 The project may be tested by loading the `./tests/search.spec.html` page. The test cases on this page are written in `./tests/searchpage.spec.js`. Note that in order for all the tests to pass, a query must be passed in the URL of the page. The simplest way to achieve this would be to load `index.html`, enter a search query and click 'Run Unit Tests'.
 
 Here is a sample of the test cases run when passing the query `Jasmine Javascript`:
-[https://vikeshcodes.com/gbooks/test/search.spec.html?query=Jasmine+Javascript](https://vikeshcodes.com/gbooks/test/search.spec.html?query=Jasmine+Javascript)
+[https://vikeshcodes.com/gbooks/tests/search.spec.html?query=Jasmine+Javascript](https://vikeshcodes.com/gbooks/tests/search.spec.html?query=Jasmine+Javascript)
 
 The tests that have been written broadly cover 3 areas:
 - Fetching the search query from the URL and setting it to the search box
