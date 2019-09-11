@@ -20,3 +20,11 @@ function search(query) {
     query = formatQuery(query);
     location.href = `./search.html?query=${query}`;
 }
+
+function runTests(query) {
+    if (!query)
+        query = query_container.value;
+
+    query = formatQuery(query);
+    location.href = `./tests/search.spec.html?query=${query}`;
+}

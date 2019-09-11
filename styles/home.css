@@ -11,3 +11,7 @@
     width: 15%;
     max-width: 50px;
 }
+
+#test-container {
+    margin: 20px;
+}
