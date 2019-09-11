@@ -106,9 +106,9 @@ function getResults() {
             var author = info.authors && info.authors.join(', ');
             var publisher = info.publisher;
             var image = info.imageLinks && info.imageLinks.thumbnail;
-            var url=info.infoLink;
+            var url = info.infoLink;
 
-            addBook(title, author, publisher, image, url);
+            books_container.appendChild(createBook(title, author, publisher, image, url));
         });
 
         loading_container.classList.add('hidden');
@@ -118,7 +118,7 @@ function getResults() {
     });
 }
 
-function addBook(title, author, publisher, image, url) {
+function createBook(title, author, publisher, image, url) {
     let card = document.createElement('a');
     card.classList.add('card');
     card.href = url;
@@ -137,13 +137,16 @@ function addBook(title, author, publisher, image, url) {
     info_container.classList.add('book-info');
 
     let book_title = document.createElement('h2');
+    book_title.classList.add('book-title');
     book_title.innerText = title;
 
     let book_author = document.createElement('p');
     book_author.classList.add('subtitle');
+    book_author.classList.add('book-author');
     book_author.innerText = author !== undefined ? author : "Unknown Author";
 
     let book_publisher = document.createElement('p');
+    book_publisher.classList.add('book-publisher');
     book_publisher.innerText = publisher !== undefined ? publisher : "Unknown Publisher";
 
     info_container.appendChild(book_title);
@@ -153,7 +156,7 @@ function addBook(title, author, publisher, image, url) {
     card.appendChild(image_container);
     card.appendChild(info_container);
 
-    books_container.appendChild(card);
+    return card;
 }
 
 function showNoResults() {
